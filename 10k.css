@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    background: LightSalmon;
+}
+
+header {
+    border-bottom: 3px solid Salmon;
+}
+
+header h1 {
+    text-align: center;
+    height: 70px;
+    font-size: 50px;
+    line-height: 70px;
+    color: Gold;
+    text-shadow: 0 3px 0 SlateGray;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="radio"]:checked + label {
+    background: SlateGray;
+}
+
+label {
+    height: 50px;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 3px solid Salmon;
+    border-right: 3px solid Salmon;
+    flex: 1 1 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+    label {
+        flex: 1 1 auto;
+    }
+
+    label:last-of-type {
+        border-right: none;
+    }
+}
+
+label:hover {
+    background: Salmon;
+}
+
+label {
+    color: White;
+}
+
+article {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    min-height: calc(100vh - 123px);
+    width: 100%;
+    background: SlateGray;
+}
+
+section {
+    display: none;
+    margin: 10px;
+    padding: 10px;
+    background: White;
+}
+
+input[type="radio"]:nth-of-type(1):checked ~ article section:nth-of-type(1) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(2):checked ~ article section:nth-of-type(2) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(3):checked ~ article section:nth-of-type(3) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(4):checked ~ article section:nth-of-type(4) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(5):checked ~ article section:nth-of-type(5) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(6):checked ~ article section:nth-of-type(6) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(7):checked ~ article section:nth-of-type(7) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(8):checked ~ article section:nth-of-type(8) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(9):checked ~ article section:nth-of-type(9) {
+    display: block;
+}
+
+input[type="radio"]:nth-of-type(10):checked ~ article section:nth-of-type(10) {
+    display: block;
+}
