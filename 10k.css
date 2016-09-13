@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    _background: #2980b9;
+    background: #2980b9;
     color: #3498db;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 1.5rem;
@@ -78,16 +78,18 @@ body {
 }
 
 .c {
-    width: 15rem;
+    flex: 0 0 auto;
+    width: 20rem;
+    height: 25rem;
     margin: 10rem auto;
     position: relative
 }
 
 .h {
     position: absolute;
-    top: -2rem;
-    left: -1rem;
-    right: -1rem;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
     height: 10rem;
     background: #974B17;
     z-index: 0;
@@ -95,6 +97,8 @@ body {
 }
 
 .f {
+    margin-top: 2rem;
+    margin-left: 2.5rem;
     width: 15rem;
     height: 20rem;
     background: #FDD09F;
@@ -159,12 +163,12 @@ body {
 
 .eal {
     border-radius: 1rem .5rem .5rem 1rem;
-    right: 100%
+    right: calc(100% - 1px)
 }
 
 .ear {
     border-radius: .5rem 1rem 1rem .5rem;
-    left: 100%
+    left: calc(100% - 1px)
 }
 
 .n {
@@ -220,14 +224,14 @@ body {
 .cr[value="hs"]:checked~.c .h {
     height: 6rem;
     border-radius: 2rem 2rem 0 0;
-    left: 0;
-    right: 0
+    left: 2.5rem;
+    right: 2.5rem
 }
 
 .cr[value="hl"]:checked~.c .h {
     height: 25rem;
-    left: -2rem;
-    right: -2rem;
+    left: .5rem;
+    right: .5rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0
 }
