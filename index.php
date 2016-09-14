@@ -1,10 +1,19 @@
 <?php
-function c($a = false) {
-    if(!$a) {
-        return false;
+if(isset($_POST['i'])) {
+    $file = $_POST['fc'] . $_POST['ft'] . $_POST['ht'] . $_POST['hc'] . $_POST['ey'] . $_POST['ea'] . $_POST['n'] . $_POST['m'] . ".png";
+    $path = __DIR__ . "/logos/";
+    $filepath = $path . $file;
+
+    if(!file_exists($filepath)) {
+        list(, $data) = explode(',', $_POST['i']);
+        $data = base64_decode($data);
+        file_put_contents($filepath, $data);
     }
 
-    return isset($a) && !empty($a);
+    header('Content-type: octet/stream');
+    header('Content-disposition: attachment; filename=flavatar.png;');
+    header('Content-Length: '.filesize($filepath));
+    readfile($filepath);
 }
 ?>
 <!DOCTYPE html>
@@ -16,56 +25,89 @@ function c($a = false) {
     <title>CSS logo builder</title>
 </head>
 <body>
-    <form class="w" method="post">
-        <input class="tr" type="radio" id="fc" name="t" value="fc"<?php echo (c($_POST['t']) && $_POST['t'] === "fc") || !c($_POST['t'])  ? " checked" : "fc" ?>>
+    <form class="w" method="post" onsubmit="z(event, this)">
+        <input class="tr" type="radio" id="fc" name="t" value="fc"<?php echo (isset($_POST['t']) && $_POST['t'] === "fc") || !isset($_POST['t']) ? " checked" : "
+        "; ?>>
         <label class="tl" for="fc">Face ten</label>
-        <input class="tr" type="radio" id="ft" name="t" value="ft"<?php echo c($_POST['t']) && $_POST['t'] === "ft" ? " checked" : "ft" ?>>
+        <input class="tr" type="radio" id="ft" name="t" value="ft"<?php echo isset($_POST['t']) && $_POST['t'] === "ft" ? " checked" : "
+        "; ?>>
         <label class="tl" for="ft">Face type</label>
-        <input class="tr" type="radio" id="ht" name="t" value="ht"<?php echo c($_POST['t']) && $_POST['t'] === "ht" ? " checked" : "ht" ?>>
+        <input class="tr" type="radio" id="ht" name="t" value="ht"<?php echo isset($_POST['t']) && $_POST['t'] === "ht" ? " checked" : "
+        "; ?>>
         <label class="tl" for="ht">Hair type</label>
-        <input class="tr" type="radio" id="hc" name="t" value="hc"<?php echo c($_POST['t']) && $_POST['t'] === "hc" ? " checked" : "hc" ?>>
+        <input class="tr" type="radio" id="hc" name="t" value="hc"<?php echo isset($_POST['t']) && $_POST['t'] === "hc" ? " checked" : "
+        "; ?>>
         <label class="tl" for="hc">Hair color</label>
-        <input class="tr" type="radio" id="ey" name="t" value="ey"<?php echo c($_POST['t']) && $_POST['t'] === "ey" ? " checked" : "ey" ?>>
+        <input class="tr" type="radio" id="ey" name="t" value="ey"<?php echo isset($_POST['t']) && $_POST['t'] === "ey" ? " checked" : "
+        "; ?>>
         <label class="tl" for="ey">Eyes</label>
-        <input class="tr" type="radio" id="ea" name="t" value="ea"<?php echo c($_POST['t']) && $_POST['t'] === "ea" ? " checked" : "ea" ?>>
+        <input class="tr" type="radio" id="ea" name="t" value="ea"<?php echo isset($_POST['t']) && $_POST['t'] === "ea" ? " checked" : "
+        "; ?>>
         <label class="tl" for="ea">Ears</label>
-        <input class="tr" type="radio" id="n" name="t" value="n"<?php echo c($_POST['t']) && $_POST['t'] === "n" ? " checked" : "n" ?>>
+        <input class="tr" type="radio" id="n" name="t" value="n"<?php echo isset($_POST['t']) && $_POST['t'] === "n" ? " checked" : "
+        "; ?>>
         <label class="tl" for="n">Nose</label>
-        <input class="tr" type="radio" id="m" name="t" value="m"<?php echo c($_POST['t']) && $_POST['t'] === "m" ? " checked" : "m" ?>>
+        <input class="tr" type="radio" id="m" name="t" value="m"<?php echo isset($_POST['t']) && $_POST['t'] === "m" ? " checked" : "
+        "; ?>>
         <label class="tl" for="m">Mouth</label>
 
-        <input class="cr" type="radio" id="fl" name="fc" value="fl"<?php echo (c($_POST['fc']) && $_POST['fc'] === "fl") || !c($_POST['fc'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="fm" name="fc" value="fm"<?php echo (c($_POST['fc']) && $_POST['fc'] === "fm") || !c($_POST['fc'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="fd" name="fc" value="fd"<?php echo (c($_POST['fc']) && $_POST['fc'] === "fd") || !c($_POST['fc'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="fl" name="fc" value="fl"<?php echo (isset($_POST['fc']) && $_POST['fc'] === "fl") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="fm" name="fc" value="fm"<?php echo (isset($_POST['fc']) && $_POST['fc'] === "fm") || !isset($_POST['fc']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="fd" name="fc" value="fd"<?php echo (isset($_POST['fc']) && $_POST['fc'] === "fd") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="fs" name="ft" value="fs"<?php echo (c($_POST['ft']) && $_POST['ft'] === "fs") || !c($_POST['ft'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="fr" name="ft" value="fr"<?php echo (c($_POST['ft']) && $_POST['ft'] === "fr") || !c($_POST['ft'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="fo" name="ft" value="fo"<?php echo (c($_POST['ft']) && $_POST['ft'] === "fo") || !c($_POST['ft'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="fs" name="ft" value="fs"<?php echo (isset($_POST['ft']) && $_POST['ft'] === "fs") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="fr" name="ft" value="fr"<?php echo (isset($_POST['ft']) && $_POST['ft'] === "fr") || !isset($_POST['ft']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="fo" name="ft" value="fo"<?php echo (isset($_POST['ft']) && $_POST['ft'] === "fo") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="hb" name="ht" value="hb"<?php echo (c($_POST['ht']) && $_POST['ht'] === "hb") || !c($_POST['ht'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="hs" name="ht" value="hs"<?php echo (c($_POST['ht']) && $_POST['ht'] === "hs") || !c($_POST['ht'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="hm" name="ht" value="hm"<?php echo (c($_POST['ht']) && $_POST['ht'] === "hm") || !c($_POST['ht'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="hl" name="ht" value="hl"<?php echo (c($_POST['ht']) && $_POST['ht'] === "hl") || !c($_POST['ht'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="hb" name="ht" value="hb"<?php echo (isset($_POST['ht']) && $_POST['ht'] === "hb") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="hs" name="ht" value="hs"<?php echo (isset($_POST['ht']) && $_POST['ht'] === "hs") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="hm" name="ht" value="hm"<?php echo (isset($_POST['ht']) && $_POST['ht'] === "hm") || !isset($_POST['ht']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="hl" name="ht" value="hl"<?php echo (isset($_POST['ht']) && $_POST['ht'] === "hl") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="hbl" name="hc" value="hbl"<?php echo (c($_POST['hc']) && $_POST['hc'] === "hbl") || !c($_POST['hc'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="hbr" name="hc" value="hbr"<?php echo (c($_POST['hc']) && $_POST['hc'] === "hbr") || !c($_POST['hc'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="hd" name="hc" value="hd"<?php echo (c($_POST['hc']) && $_POST['hc'] === "hd") || !c($_POST['hc'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="hbl" name="hc" value="hbl"<?php echo (isset($_POST['hc']) && $_POST['hc'] === "hbl") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="hbr" name="hc" value="hbr"<?php echo (isset($_POST['hc']) && $_POST['hc'] === "hbr") || !isset($_POST['hc']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="hd" name="hc" value="hd"<?php echo (isset($_POST['hc']) && $_POST['hc'] === "hd") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="eg" name="ey" value="eg"<?php echo (c($_POST['ey']) && $_POST['ey'] === "eg") || !c($_POST['ey'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="ebl" name="ey" value="ebl"<?php echo (c($_POST['ey']) && $_POST['ey'] === "ebl") || !c($_POST['ey'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="eb" name="ey" value="eb"<?php echo (c($_POST['ey']) && $_POST['ey'] === "eb") || !c($_POST['ey'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="eg" name="ey" value="eg"<?php echo (isset($_POST['ey']) && $_POST['ey'] === "eg") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="ebl" name="ey" value="ebl"<?php echo (isset($_POST['ey']) && $_POST['ey'] === "ebl") || !isset($_POST['ey']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="eb" name="ey" value="eb"<?php echo (isset($_POST['ey']) && $_POST['ey'] === "eb") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="en" name="ea" value="en"<?php echo (c($_POST['ea']) && $_POST['ea'] === "en") || !c($_POST['ea'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="er" name="ea" value="er"<?php echo (c($_POST['ea']) && $_POST['ea'] === "er") || !c($_POST['ea'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="ew" name="ea" value="ew"<?php echo (c($_POST['ea']) && $_POST['ea'] === "ew") || !c($_POST['ea'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="en" name="ea" value="en"<?php echo (isset($_POST['ea']) && $_POST['ea'] === "en") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="er" name="ea" value="er"<?php echo (isset($_POST['ea']) && $_POST['ea'] === "er") || !isset($_POST['ea']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="ew" name="ea" value="ew"<?php echo (isset($_POST['ea']) && $_POST['ea'] === "ew") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="nn" name="n" value="nn"<?php echo (c($_POST['n']) && $_POST['n'] === "nn") || !c($_POST['n'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="nr" name="n" value="nr"<?php echo (c($_POST['n']) && $_POST['n'] === "nr") || !c($_POST['n'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="nw" name="n" value="nw"<?php echo (c($_POST['n']) && $_POST['n'] === "nw") || !c($_POST['n'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="nn" name="n" value="nn"<?php echo (isset($_POST['n']) && $_POST['n'] === "nn") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="nr" name="n" value="nr"<?php echo (isset($_POST['n']) && $_POST['n'] === "nr") || !isset($_POST['n']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="nw" name="n" value="nw"<?php echo (isset($_POST['n']) && $_POST['n'] === "nw") ? " checked" : "
+        "; ?>>
 
-        <input class="cr" type="radio" id="mt" name="m" value="mt"<?php echo (c($_POST['m']) && $_POST['m'] === "mt") || !c($_POST['m'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="mr" name="m" value="mr"<?php echo (c($_POST['m']) && $_POST['m'] === "mr") || !c($_POST['m'])  ? " checked" : "fc" ?>>
-        <input class="cr" type="radio" id="mf" name="m" value="mf"<?php echo (c($_POST['m']) && $_POST['m'] === "mf") || !c($_POST['m'])  ? " checked" : "fc" ?>>
+        <input class="cr" type="radio" id="mt" name="m" value="mt"<?php echo (isset($_POST['m']) && $_POST['m'] === "mt") ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="mr" name="m" value="mr"<?php echo (isset($_POST['m']) && $_POST['m'] === "mr") || !isset($_POST['m']) ? " checked" : "
+        "; ?>>
+        <input class="cr" type="radio" id="mf" name="m" value="mf"<?php echo (isset($_POST['m']) && $_POST['m'] === "mf") ? " checked" : "
+        "; ?>>
 
         <div class="tc" data-target="fc">
             <label class="cl" for="fl">Light</label>
@@ -120,23 +162,37 @@ function c($a = false) {
             </div>
         </div>
         <button type="submit" class="b">Download</button>
-        <?php if(c($_POST)) { ?>
-            <script src="node_modules\html2canvas\dist\html2canvas.js" charset="utf-8"></script>
-            <script>
-            (function s() {
-                html2canvas(document.getElementsByClassName('c'), {
-                    background: undefined,
-                    onrendered: function (canvas) {
-                        var a = document.createElement('a');
-                        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-                        a.download = 'MyFlatLogo.jpg';
-                        document.body.appendChild(a);
-                        a.click();
-                    }
-                });
-            })();
-            </script>
-        <?php } ?>
+        <script type="text/javascript" src="node_modules\html2canvas\dist\html2canvas.js"></script>
+        <script type="text/javascript">
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'node_modules/html2canvas/dist/html2canvas.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+        </script>
+        <script type="text/javascript">
+        var z = function(event, that) {
+            event.preventDefault();
+
+            html2canvas(document.getElementsByClassName('c'), {
+                background: undefined,
+                onrendered: function (canvas) {
+                    var i = document.getElementsByClassName('i');
+
+                    i = document.createElement("input");
+                    i.type = "hidden";
+                    i.className = "i";
+                    i.name = "i";
+
+                    i.value = canvas.toDataURL("image/png");
+                    that.appendChild(i);
+
+                    that.submit();
+                }
+            });
+        };
+        </script>
     </form>
 </body>
 </html>

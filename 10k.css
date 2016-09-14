@@ -1,7 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 1.5rem;
+    line-height: 2
 }
 
 html, body {
@@ -15,9 +18,6 @@ html {
 body {
     background: #2980b9;
     color: #3498db;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-size: 1.5rem;
-    line-height: 2
 }
 
 .w {
@@ -79,17 +79,19 @@ body {
 
 .c {
     flex: 0 0 auto;
-    width: 20rem;
-    height: 25rem;
+    width: 34rem;
+    height: 34rem;
     margin: 10rem auto;
-    position: relative
+    position: relative;
+    background: #3498db;
+    border-radius: 17.5rem;
 }
 
 .h {
     position: absolute;
-    top: 0;
-    left: 1.5rem;
-    right: 1.5rem;
+    top: 5rem;
+    left: 8.5rem;
+    right: 8.5rem;
     height: 10rem;
     background: #974B17;
     z-index: 0;
@@ -97,8 +99,8 @@ body {
 }
 
 .f {
-    margin-top: 2rem;
-    margin-left: 2.5rem;
+    margin-top: 7rem;
+    margin-left: 9.5rem;
     width: 15rem;
     height: 20rem;
     background: #FDD09F;
@@ -224,14 +226,14 @@ body {
 .cr[value="hs"]:checked~.c .h {
     height: 6rem;
     border-radius: 2rem 2rem 0 0;
-    left: 2.5rem;
-    right: 2.5rem
+    left: 9.5rem;
+    right: 9.5rem
 }
 
 .cr[value="hl"]:checked~.c .h {
     height: 25rem;
-    left: .5rem;
-    right: .5rem;
+    left: 7.5rem;
+    right: 7.5rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0
 }
@@ -288,10 +290,6 @@ body {
     right: 1rem;
     padding: 1rem 3rem;
     border: 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-family: inherit;
-    font-size: 1.5rem;
-    line-height: 2;
     background: #3498db;
     color: #fff;
     border: .2rem solid #3498db;
