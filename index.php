@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['i'])) {
-    $file = $_POST['fc'] . $_POST['ft'] . $_POST['ht'] . $_POST['hc'] . $_POST['ey'] . $_POST['ea'] . $_POST['n'] . $_POST['m'] . ".png";
-    $path = __DIR__ . "/logos/";
+    $file = $_POST['fc'] . $_POST['ft'] . $_POST['ht'] . $_POST['hc'] . $_POST['ey'] . $_POST['ea'] . $_POST['n'] . $_POST['m'] . '.png';
+    $path = __DIR__ . '/gfx/';
     $filepath = $path . $file;
 
     if(!file_exists($filepath)) {
