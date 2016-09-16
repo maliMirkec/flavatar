@@ -1,0 +1,405 @@
+$default-color: #3498db;
+$default-color--light: lighten($default-color, 20%);
+$default-color--lighter: lighten($default-color, 30%);
+$default-color--lightest: lighten($default-color, 40%);
+$highlight-color: #fff;
+$black-color: #000;
+$text-color: #333;
+$size: 1rem;
+$size--small: .5rem;
+
+$skin-color--light: #FDD09F;
+$skin-color--medium: #D6976B;
+$skin-color--dark: #492E25;
+$hair-color--blonde: #FFFCD6;
+$hair-color--brunette: #974B17;
+$hair-color--black: #0A0A0A;
+$eye-color--green: #16a085;
+$eye-color--blue: #2980b9;
+$eye-color--brown: #974B17;
+$mouth-color--male: #ed7251;
+$mouth-color--female: #DF554F;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    outline: 0;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 2;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: $default-color--lighter;
+    color: $text-color;
+}
+
+// wrapper
+.w {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// tab label
+.tl {
+    display: flex;
+    flex: 1 1 25%;
+    align-items: center;
+    justify-content: center;
+    padding: $size;
+    cursor: pointer;
+}
+
+.tr:checked+.tl {
+    background: $default-color;
+}
+
+.tl:hover {
+    background: $default-color--lightest;
+}
+
+// content label
+.cl {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: $size;
+    cursor: pointer;
+}
+
+.cl:hover {
+    background: $default-color--lightest;
+}
+
+// tab content
+.tc {
+    display: none;
+    flex: 100%;
+    flex-direction: row;
+    padding: $size--small;
+    background: $default-color;
+}
+
+[value="gm"]:checked~.tc [for="gm"], [value="gf"]:checked~.tc [for="gf"], [value="fl"]:checked~.tc [for="fl"], [value="fm"]:checked~.tc [for="fm"], [value="fd"]:checked~.tc [for="fd"], [value="hb"]:checked~.tc [for="hb"], [value="hs"]:checked~.tc [for="hs"], [value="hm"]:checked~.tc [for="hm"], [value="hl"]:checked~.tc [for="hl"], [value="hbl"]:checked~.tc [for="hbl"], [value="hbr"]:checked~.tc [for="hbr"], [value="hd"]:checked~.tc [for="hd"], [value="eg"]:checked~.tc [for="eg"], [value="ebl"]:checked~.tc [for="ebl"], [value="eb"]:checked~.tc [for="eb"], [value="en"]:checked~.tc [for="en"], [value="er"]:checked~.tc [for="er"], [value="ew"]:checked~.tc [for="ew"], [value="nn"]:checked~.tc [for="nn"], [value="nr"]:checked~.tc [for="nr"], [value="nw"]:checked~.tc [for="nw"], [value="mt"]:checked~.tc [for="mt"], [value="mr"]:checked~.tc [for="mr"], [value="mf"]:checked~.tc [for="mf"] {
+    background: $highlight-color;
+}
+
+.tr:nth-of-type(1):checked~.tc:nth-of-type(1),
+.tr:nth-of-type(2):checked~.tc:nth-of-type(2),
+.tr:nth-of-type(3):checked~.tc:nth-of-type(3),
+.tr:nth-of-type(4):checked~.tc:nth-of-type(4),
+.tr:nth-of-type(5):checked~.tc:nth-of-type(5),
+.tr:nth-of-type(6):checked~.tc:nth-of-type(6),
+.tr:nth-of-type(7):checked~.tc:nth-of-type(7),
+.tr:nth-of-type(8):checked~.tc:nth-of-type(8) {
+    display: flex;
+}
+
+// tab radio, content radio
+.tr,
+.cr {
+    position: absolute;
+    left: -999rem;
+}
+
+// button
+.b {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem 3rem;
+    position: fixed;
+    background: $highlight-color;
+    cursor: pointer;
+}
+
+.b:hover,
+.b:focus,
+.b:active {
+    background: $default-color--lightest;
+}
+
+// character
+.c {
+    flex: 0 0 32rem;
+    position: relative;
+    width: 32rem;
+    height: 32rem;
+    margin: 2.5rem auto 10rem;
+}
+
+// hair
+.h {
+    top: 3rem;
+    left: 7.5rem;
+    right: 7.5rem;
+    height: 10rem;
+    background: $hair-color--brunette;
+    border-radius: 4.5rem 4.5rem 2rem 2rem;
+    position: absolute;
+}
+
+// face
+.f {
+    margin-top: 5rem;
+    margin-left: 8.5rem;
+    width: 15rem;
+    height: 20rem;
+    background: $skin-color--medium;
+    border-radius: 3.5rem 3.5rem 7.5rem 7.5rem;
+    position: relative;
+}
+
+// eyes
+.ey {
+    height: 1.5rem;
+    width: 3rem;
+    border-radius: 2.5rem;
+    top: 6.5rem;
+    background: $highlight-color;
+    position: absolute;
+}
+
+.ey:before {
+    content: "";
+    top: -1rem;
+    height: .2rem;
+    width: 3rem;
+    border-radius: 1rem;
+    background: $hair-color--brunette;
+    position: absolute;
+}
+
+.ey:after {
+    content: "";
+    top: .25rem;
+    left: 1.5rem;
+    height: 1rem;
+    width: 1rem;
+    border-radius: .5rem;
+    background: $eye-color--blue;
+    position: absolute;
+}
+
+.eyl {
+    right: calc(50% + 1.25rem);
+}
+
+.eyl:before {
+    transform: rotate(-2deg);
+}
+
+.eyr {
+    left: calc(50% + 1.25rem);
+}
+
+.eyr:before {
+    transform: rotate(2deg);
+}
+
+// ears
+.ea {
+    height: 4rem;
+    width: 1rem;
+    background: $skin-color--medium;
+    top: 8rem;
+    position: absolute;
+}
+
+.eal {
+    border-radius: 1rem .5rem .5rem 1rem;
+    right: calc(100% - 1px);
+}
+
+.ear {
+    border-radius: .5rem 1rem 1rem .5rem;
+    left: calc(100% - 1px);
+}
+
+// nose
+.n {
+    height: 2rem;
+    width: 1rem;
+    left: calc(50% - .5rem);
+    top: 10rem;
+    border-bottom: .2rem solid $black-color;
+    border-right: .2rem solid $black-color;
+    border-bottom-right-radius: .5rem;
+    position: absolute;
+}
+
+// mouths
+
+// skin color light
+[value="fl"]:checked~.c .f, [value="fl"]:checked~.c .f .ea {
+    background: $skin-color--light
+}
+
+// skin color dark
+[value="fd"]:checked~.c .f, [value="fd"]:checked~.c .f .ea {
+    background: $skin-color--dark
+}
+
+// hair short
+[value="hs"]:checked~.c .h {
+    height: 6rem;
+    border-radius: 2rem 2rem 0 0;
+    left: 8.5rem;
+    right: 8.5rem
+}
+
+// hair long
+[value="hl"]:checked~.c .h {
+    height: 25rem;
+    left: 6.5rem;
+    right: 6.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+// hair blonde
+[value="hbl"]:checked~.c .h, [value="hbl"]:checked~.c .ey:before {
+    background: $hair-color--blonde
+}
+
+// hair dark
+[value="hd"]:checked~.c .h, [value="hd"]:checked~.c .ey:before {
+    background: $hair-color--black
+}
+
+// hair bold
+[value="hb"]:checked~.c .h {
+    left: 8.5rem;
+    right: 8.5rem;
+    background: transparent
+}
+
+// eyes green
+[value="eg"]:checked~.c .ey:after {
+    background: $eye-color--green
+}
+
+// eyes brown
+[value="eb"]:checked~.c .ey:after {
+    background: $eye-color--brown
+}
+
+// ears narrow
+[value="en"]:checked~.c .ea {
+    width: .75rem
+}
+
+// ears wide
+[value="ew"]:checked~.c .ea {
+    width: 1.25rem
+}
+
+// nose narrow
+[value="nn"]:checked~.c .n {
+    width: .75rem;
+    left: calc(50% - .25rem)
+}
+
+// nose wide
+[value="nw"]:checked~.c .n {
+    width: 1.25rem;
+    left: calc(50% - .75rem)
+}
+
+// gender male
+[value="gm"]:checked~.c .m {
+    height: 1.25rem;
+    width: 5rem;
+    top: 14rem;
+    left: calc(50% - 2.5rem);
+    background: $mouth-color--male;
+    border-radius: 1rem;
+    transform: rotate(2deg);
+    position: absolute;
+}
+
+[value="gm"]:checked~.c .m:after {
+    content: "";
+    top: calc(50% - .05rem);
+    height: .1rem;
+    width: 3.5rem;
+    right: .5rem;
+    background: $black-color;
+    position: absolute;
+}
+
+// gender female
+[value="gf"]:checked~.c .m {
+    height: 1.25rem;
+    width: 3.8rem;
+    top: 14rem;
+    left: calc(50% - 1.9rem);
+    background: $mouth-color--female;
+    border-radius: 0 0 1rem 1rem;
+    transform: rotateX(60deg);
+    position: absolute;
+}
+
+[value="gf"]:checked~.c .m:before,
+[value="gf"]:checked~.c .m:after {
+    content: "";
+    bottom: calc(100% + .2rem);
+    height: 1rem;
+    width: 2rem;
+    background: $mouth-color--female;
+    border-radius: 1rem 1rem 0 0;
+    display: block;
+    position: absolute;
+}
+
+[value="gf"]:checked~.c .m:before {
+    left: -.1rem
+}
+
+[value="gf"]:checked~.c .m:after {
+    left: 50%
+}
+
+[value="gf"]:checked~.c .ey {
+    border-top: .1rem solid $text-color;
+    border-bottom: .1rem solid $text-color
+}
+
+[value="gf"]:checked~.c .ey:after {
+    top: .2rem;
+}
+
+// mouth thin
+[value="mt"]:checked~.c .m {
+    height: 1rem
+}
+
+// mouth full
+[value="mf"]:checked~.c .m {
+    height: 1.5rem
+}
+
+@media screen and (min-width: 600px) {
+    .tl {
+        flex: 1 1 auto;
+    }
+
+    .cl {
+        flex: 0 0 15rem;
+    }
+
+    .c {
+        margin: 8rem auto;
+    }
+}
