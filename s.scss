@@ -102,8 +102,7 @@ body {
 .tr:nth-of-type(4):checked~.tc:nth-of-type(4),
 .tr:nth-of-type(5):checked~.tc:nth-of-type(5),
 .tr:nth-of-type(6):checked~.tc:nth-of-type(6),
-.tr:nth-of-type(7):checked~.tc:nth-of-type(7),
-.tr:nth-of-type(8):checked~.tc:nth-of-type(8) {
+.tr:nth-of-type(7):checked~.tc:nth-of-type(7) {
     display: flex;
 }
 
@@ -239,8 +238,6 @@ body {
     position: absolute;
 }
 
-// mouths
-
 // skin color light
 [value="fl"]:checked~.c .f, [value="fl"]:checked~.c .f .ea {
     background: $skin-color--light
@@ -303,18 +300,6 @@ body {
 // ears wide
 [value="ew"]:checked~.c .ea {
     width: 1.25rem
-}
-
-// nose narrow
-[value="nn"]:checked~.c .n {
-    width: .75rem;
-    left: calc(50% - .25rem)
-}
-
-// nose wide
-[value="nw"]:checked~.c .n {
-    width: 1.25rem;
-    left: calc(50% - .75rem)
 }
 
 // gender male

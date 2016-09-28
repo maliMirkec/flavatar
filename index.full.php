@@ -38,8 +38,6 @@ if(isset($_POST['i'])) {
         <label class="tl" for="ey">Eyes</label>
         <input class="tr" type="radio" id="ea" name="t" value="ea"<?php echo isset($_POST['t']) && $_POST['t'] === "ea" ? " checked" : ""; ?>>
         <label class="tl" for="ea">Ears</label>
-        <input class="tr" type="radio" id="n" name="t" value="n"<?php echo isset($_POST['t']) && $_POST['t'] === "n" ? " checked" : ""; ?>>
-        <label class="tl" for="n">Nose</label>
         <input class="tr" type="radio" id="m" name="t" value="m"<?php echo isset($_POST['t']) && $_POST['t'] === "m" ? " checked" : ""; ?>>
         <label class="tl" for="m">Mouth</label>
 
@@ -66,10 +64,6 @@ if(isset($_POST['i'])) {
         <input class="cr" type="radio" id="en" name="ea" value="en"<?php echo (isset($_POST['ea']) && $_POST['ea'] === "en") ? " checked" : ""; ?>>
         <input class="cr" type="radio" id="er" name="ea" value="er"<?php echo (isset($_POST['ea']) && $_POST['ea'] === "er") || !isset($_POST['ea']) ? " checked" : ""; ?>>
         <input class="cr" type="radio" id="ew" name="ea" value="ew"<?php echo (isset($_POST['ea']) && $_POST['ea'] === "ew") ? " checked" : ""; ?>>
-
-        <input class="cr" type="radio" id="nn" name="n" value="nn"<?php echo (isset($_POST['n']) && $_POST['n'] === "nn") ? " checked" : ""; ?>>
-        <input class="cr" type="radio" id="nr" name="n" value="nr"<?php echo (isset($_POST['n']) && $_POST['n'] === "nr") || !isset($_POST['n']) ? " checked" : ""; ?>>
-        <input class="cr" type="radio" id="nw" name="n" value="nw"<?php echo (isset($_POST['n']) && $_POST['n'] === "nw") ? " checked" : ""; ?>>
 
         <input class="cr" type="radio" id="mt" name="m" value="mt"<?php echo (isset($_POST['m']) && $_POST['m'] === "mt") ? " checked" : ""; ?>>
         <input class="cr" type="radio" id="mr" name="m" value="mr"<?php echo (isset($_POST['m']) && $_POST['m'] === "mr") || !isset($_POST['m']) ? " checked" : ""; ?>>
@@ -104,11 +98,6 @@ if(isset($_POST['i'])) {
             <label class="cl" for="en">Narrow</label>
             <label class="cl" for="er">Regular</label>
             <label class="cl" for="ew">Wide</label>
-        </div>
-        <div class="tc" data-target="n">
-            <label class="cl" for="nn">Narrow</label>
-            <label class="cl" for="nr">Regular</label>
-            <label class="cl" for="nw">Wide</label>
         </div>
         <div class="tc" data-target="m">
             <label class="cl" for="mt">Thin</label>
