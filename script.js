@@ -7,7 +7,7 @@ var z = function(event, that) {
     s.type = 'text/javascript';
     s.async = true;
     s.onload = y;
-    s.src = 'node_modules/html2canvas/dist/html2canvas.js';
+    s.src = 'node_modules/html2canvas/dist/html2canvas.min.js';
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
 
